@@ -1,8 +1,9 @@
 import React, {Component } from 'react';
 import Carre from './carre.jsx';
+import calculateWinner from './calculateWinner.jsx';
 
 export default class plateau extends Component {
-constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
@@ -28,7 +29,14 @@ constructor(props) {
   }
 
   render() {
-    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    const winner = calculateWinner(this.state.squares);
+
+    let status;
+    if (winner) {
+      status = 'Winner: ' + winner;
+    } else {
+      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    }
 
 		return (
 		  <div>
