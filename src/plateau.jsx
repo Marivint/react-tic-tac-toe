@@ -12,7 +12,11 @@ export default class plateau extends Component {
 
   renderTd(i) {
     return (
-      <Carre id={i} value={this.state.squares[i]} onClick={() => this.props.onClick(i)} />
+      <Carre
+        id={i}
+        value={this.props.squares[i]}
+        onClick={() => this.props.onClick(i)}
+      />
     );
   }
 
