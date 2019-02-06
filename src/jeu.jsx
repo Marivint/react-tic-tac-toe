@@ -20,7 +20,7 @@ export default class Jeu extends Component {
     const current = history[history.length - 1];
     const squares = current.squares.slice();
 
-    if(squares[i] != null) return;
+    if(calculateWinner(squares) || squares[i] != null) return;
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     document.getElementById(i).style.cursor ="default";
     this.setState({

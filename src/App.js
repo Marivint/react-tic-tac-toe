@@ -4,14 +4,14 @@ import './App.css';
 
 // COMPOSANTS
 import Jeu from './jeu.jsx';
-import Clignotement from './Clignotement.jsx';
+import Blink from './blink.jsx';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        // <Jeu/>
-        <Clignotement/>
+      	<Jeu/>
+        <Blink message="Make me blink"/>
       </div>
     );
   }
