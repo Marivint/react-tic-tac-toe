@@ -1,6 +1,5 @@
 import React, {Component } from 'react';
 import Carre from './carre.jsx';
-import calculateWinner from './calculateWinner.jsx';
 
 export default class plateau extends Component {
   constructor(props) {
@@ -11,36 +10,15 @@ export default class plateau extends Component {
     };
   }
 
-  handleClick(i) {
-    const squares = this.state.squares.slice();
-    if(squares[i] != null) return;
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    document.getElementById(i).style.cursor ="default";
-    this.setState({
-      squares: squares,
-      xIsNext: !this.state.xIsNext,
-    });
-  }
-
   renderTd(i) {
     return (
-      <Carre id={i} value={this.state.squares[i]} onClick={() => this.handleClick(i)} />
+      <Carre id={i} value={this.state.squares[i]} onClick={() => this.props.onClick(i)} />
     );
   }
 
   render() {
-    const winner = calculateWinner(this.state.squares);
-
-    let status;
-    if (winner) {
-      status = 'Winner: ' + winner;
-    } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-    }
-
 		return (
 		  <div>
-		    <div className="status">{status}</div>
 		    <div className="board-row">
 		      {this.renderTd(0)}{this.renderTd(1)}{this.renderTd(2)}
 		    </div>
@@ -48,7 +26,7 @@ export default class plateau extends Component {
 		      {this.renderTd(3)}{this.renderTd(4)}{this.renderTd(5)}
 		    </div>
 		    <div className="board-row">
-		      {this.renderTd(6)}{this.renderTd(7)}{this.renderTd(8)}
+	         {this.renderTd(6)}{this.renderTd(7)}{this.renderTd(8)}
 		    </div>
 		  </div>
 		);

@@ -29,7 +29,7 @@ ol, ul {
     margin-right: auto;
     margin-bottom: auto;
     margin-left: auto;
-    width: 150Px;
+    width: 300Px;
 }
 
 .plateau-row:after {
@@ -68,6 +68,7 @@ ol, ul {
 /*.cell.actif:hover{
   cursor: default!important;
 }
+
 */
 .square:focus {
   outline: none;

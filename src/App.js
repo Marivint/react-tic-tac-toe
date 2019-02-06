@@ -8,7 +8,7 @@ import Jeu from './jeu.jsx';
 class App extends Component {
   render() {
     return (
-      <div class="App">
+      <div className="App">
         <Jeu/>
       </div>
     );
